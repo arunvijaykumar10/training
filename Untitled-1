@@ -21,6 +21,7 @@ time_conversion("12:09PM")
 
 
 
+
 def time_conversion(s)
   period = s[-2..-1]          
   hour = s[0..1].to_i          
