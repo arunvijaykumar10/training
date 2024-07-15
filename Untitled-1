@@ -1,0 +1,37 @@
+
+def time_conversion(str)
+    first_time =str[-2]+str[-1]
+    split_first = str.split(':').map{|x|x.split('PM').map{|x| x.to_i}}.first.first
+    split_middle = str.split(':').map{|x|x.split('PM').map{|x| x.to_i}}[1].first
+    split_last = str.split(':').map{|x|x.split('PM').map{|x| x.to_i}}.last.last
+    first = [12 << split_first].sum
+    first_hour = (str[0]+str[1]).to_i
+    if (first_time=="AM") && (str[0]+str[1]!=12)
+       return str
+    elsif (first_time=="PM") && (str[0]+str[1]!=12)
+      return "#{12+split_first}:#{split_last}"    
+    elsif (first_time=="PM") && (str[0]+str[1]==12) 
+        return "#{split_first}:#{split_last}" 
+        byebug
+    else first_hour==12
+      return "#{12-first_hour}}:#{split_last}"
+    end
+end
+time_conversion("12:09PM")
+
+
+
+def time_conversion(s)
+  period = s[-2..-1]          
+  hour = s[0..1].to_i          
+  minute = s[3..4]  
+  second = s[6..7]     
+  if period == "AM" 
+    hour = 0 if hour == 12       
+  else
+    hour += 12 if hour != 12    
+  end
+  hour_s = hour.to_s.rjust(2, '0') # rjust (2=> length of the integer)
+  "#{hour_s}:#{minute}:#{second}"
+end
+time_conversion("12:05:45AM")

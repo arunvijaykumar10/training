@@ -1,0 +1,39 @@
+id             #
+classs         .
+attributes      []
+tag            div 
+
+
+parent selector   div.login-box form(there is no particular class we can use this)
+nth child
+not selector
+
+
+
+
+element - only one tag 
+elements - one or multiple tag
+
+
+how to access an element?
+ element_name.click
+ element_name.text
+element_name.hover
+element_name.set("text")
+
+
+how to access an elements?
+var_name=[element,element,element,ele,element]
+
+
+variable_name.click #it will fail because it is an array
+var_name[0].click
+var_name[0].click
+
+
+label = "Name (Z to A)"
+
+x= variable_name.find {|e| e.text == label}
+puts x   #variable_name[1]
+
+abc = variable_name.map{|e|}
